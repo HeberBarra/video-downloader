@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "videodownloader"
+version = "1.0.0"
+description = "Simple python program for download youtube videos easily."
+authors = ["Heber F Barra <heberferreirabarra@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+yt-dlp = "^2024.12.23"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.8.5"
+
+[tool.ruff.format]
+quote-style = "single"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
