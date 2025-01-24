@@ -1,0 +1,5 @@
+.github/
+music/
+videos/
+.gitignore
+Dockerfile-flask
