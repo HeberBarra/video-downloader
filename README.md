@@ -1,4 +1,5 @@
 <h1 align="center">
+  <img src="logo.svg" style="width: 20rem" alt="logo do projeto"><br/>
   Video Downloader
 </h1>
 
