@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Downloader</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Video Downloader</h1>
+    </header>
+    <main>
+        <form action="video" method="post">
+            <label>Video URL: <input type="text" name="video-url" pattern="^((?:https?:)?//)?((?:www|m)\.)?(youtube(?:-nocookie)?\.com|youtu.be)(/(?:[\w\-]+\?v=|embed/|live/|v/)?)([\w\-]+)(\S+)?$" required></label>
+            <label>Download as MP3: <input type="checkbox" name="download-mp3"></label>
+            <button>DOWNLOAD</button>
+        </form>
+    </main>
+    <footer>
+        YT-DLP and ffmpeg Wrapper, licensed under MIT license &copy; Heber F Barra
+    </footer>
+</body>
+</html>

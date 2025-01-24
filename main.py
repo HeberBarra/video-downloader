@@ -1,16 +1,8 @@
-import os
-import re
 import sys
 
 from converter import converter
-from downloader.downloader import Downloader
-
-
-def validate_url(url: str) -> bool:
-    regex_pattern = re.compile(
-        r'^((?:https?:)?//)?((?:www|m)\.)?(youtube(?:-nocookie)?\.com|youtu.be)(/(?:[\w\-]+\?v=|embed/|live/|v/)?)([\w\-]+)(\S+)?$'
-    )
-    return regex_pattern.match(url) is not None
+from downloader import downloader
+from url_validator.url_validator import validate_url
 
 
 def get_url() -> str | None:
@@ -37,40 +29,20 @@ def get_url() -> str | None:
         return url
 
 
-def move_file(video_filepath: str):
-    if video_filepath.endswith('.mp4'):
-        os.rename(video_filepath, f'videos/{video_filepath}')
-        return
-
-    if video_filepath.endswith('.mp3'):
-        os.rename(video_filepath, f'music/{video_filepath}')
-        return
-
-
-def create_result_directories():
-    result_directories = ['videos', 'music']
-
-    for directory in result_directories:
-        if not os.path.isdir(directory):
-            os.makedirs(directory)
-
-
 def main():
     url: str = get_url()
     filenames: list[str]
-    create_result_directories()
 
-    downloader = Downloader()
-    downloader.download(url)
+    video_downloader = downloader.Downloader()
+    video_downloader.download(url)
 
-    filenames = downloader.filename_collector.filenames.copy()
+    filenames = video_downloader.filename_collector.filenames.copy()
 
     if '--convert-mp3' in sys.argv:
-        for filename in downloader.filename_collector.filenames:
+        for filename in video_downloader.filename_collector.filenames:
             filenames.append(converter.mp3_converter(filename))
 
-    for filename in filenames:
-        move_file(filename)
+    downloader.sort_downloaded_files(filenames)
 
 
 if __name__ == '__main__':

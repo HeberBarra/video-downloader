@@ -7,7 +7,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-yt-dlp = "^2024.12.23"
+yt-dlp = "^2025.1.15"
+flask = "^3.1.0"
 
 
 [tool.poetry.group.dev.dependencies]
