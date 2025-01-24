@@ -6,19 +6,22 @@
 
 body {
     display: grid;
-    grid-template-rows: 10% 100% 10%;
-    min-height: 100vh;
+    gap: 1rem;
+    grid-template-rows: 10% 80% 10%;
+    height: 100vh;
+    max-height: 100vh;
 }
 
 header {
     grid-row: 1;
+    max-height: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
     background-color: #4169E1;
     color: #EEEEEE;
-    max-height: 10vh;
+    padding: 2.5rem;
+    font-size: 2rem;
 }
 
 main {
@@ -26,21 +29,38 @@ main {
     justify-content: center;
 
     form {
-        width: 80%;
+        width: 75%;
         display: flex;
         flex-direction: column;
         gap: 1rem;
 
         input[type=text] {
             width: 100%;
+            height: 25%;
         }
 
-    }
+        font-size: 3.5rem;
 
+        label:has(input[type=checkbox]) {
+            display: flex;
+            flex-direction: row;
+        }
+
+        input[type=checkbox] {
+            height: 100%;
+            transform: scale(3);
+            margin-left: 2rem;
+        }
+
+        input, button {
+            font-size: 2.5rem;
+        }
+    }
 }
 
 footer {
-    align-self: flex-end;
-    text-align: center;
+    grid-row: 3;
     width: 100%;
+    height: 50%;
+    text-align: center;
 }
