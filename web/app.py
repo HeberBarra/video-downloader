@@ -22,6 +22,12 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/health')
+def health():
+    response_data = {'status': 'success', 'ContentType': 'application/json'}
+    return response_data, 200
+
+
 @app.route('/video', methods=['POST'])
 def video():
     error: str | None = None

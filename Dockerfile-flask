@@ -24,7 +24,7 @@ ENV FLASK_APP=/app/web/app.py \
     VIRTUAL_ENV=/app/.venv \
     PATH="/app/.venv/bin:$PATH"
 
-RUN apk update && apk upgrade && apk add --no-cache ffmpeg
+RUN apk update && apk upgrade && apk add --no-cache ffmpeg curl
 
 WORKDIR /app
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
