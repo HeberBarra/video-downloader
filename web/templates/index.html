@@ -11,6 +11,11 @@
         <h1>Video Downloader</h1>
     </header>
     <main>
+        {% if error %}
+        <script>
+            window.alert("{{ error }}")
+        </script>
+        {% endif %}
         <form action="video" method="post">
             <label>Video URL: <input type="text" name="video-url" pattern="^((?:https?:)?//)?((?:www|m)\.)?(youtube(?:-nocookie)?\.com|youtu.be)(/(?:[\w\-]+\?v=|embed/|live/|v/)?)([\w\-]+)(\S+)?$" required></label>
             <label>Download as MP3: <input type="checkbox" name="download-mp3"></label>

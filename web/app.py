@@ -6,6 +6,7 @@ from flask import redirect
 from flask import render_template
 from flask import request
 from flask import send_from_directory
+from yt_dlp.utils import ExtractorError
 from waitress import serve
 
 from converter import converter
@@ -48,6 +49,15 @@ def video():
         return send_from_directory('../music', target_file, as_attachment=True)
     else:
         return send_from_directory('../videos', target_file, as_attachment=True)
+
+
+@app.errorhandler(ExtractorError)
+def handle_invalid_url(e):
+    error = 'Invalid video URL'
+    return render_template('index.html', error=error)
+
+
+app.register_error_handler(500, handle_invalid_url)
 
 
 if __name__ == '__main__':
