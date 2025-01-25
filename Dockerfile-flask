@@ -20,6 +20,7 @@ RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --n
 FROM python:3.12-alpine AS runtime
 
 ENV FLASK_APP=/app/web/app.py \
+    FLASK_USER=flask-service \
     VIRTUAL_ENV=/app/.venv \
     PATH="/app/.venv/bin:$PATH"
 
@@ -28,5 +29,13 @@ RUN apk update && apk upgrade && apk add --no-cache ffmpeg
 WORKDIR /app
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 COPY . ./
+
+RUN addgroup --gid 1001 -S $FLASK_USER && \
+    adduser -G $FLASK_USER --shell /bin/false -h /app/ --disabled-password --uid 1001 $FLASK_USER && \
+    mkdir /app/music/ /app/videos && \
+    chown $FLASK_USER:$FLASK_USER /app/music && \
+    chown $FLASK_USER:$FLASK_USER /app/videos
+
+USER $FLASK_USER
 
 ENTRYPOINT ["python", "-m", "web.app"]
