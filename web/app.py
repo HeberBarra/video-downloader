@@ -1,9 +1,12 @@
+from os import environ
+
 from flask import Flask
 from flask import url_for
 from flask import redirect
 from flask import render_template
 from flask import request
 from flask import send_from_directory
+from waitress import serve
 
 from converter import converter
 from downloader import downloader
@@ -45,3 +48,10 @@ def video():
         return send_from_directory('../music', target_file, as_attachment=True)
     else:
         return send_from_directory('../videos', target_file, as_attachment=True)
+
+
+if __name__ == '__main__':
+    if 'BEHIND_PROXY' in environ:
+        serve(app, host='0.0.0.0', port=5000)
+
+    app.run()

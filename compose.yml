@@ -1,0 +1,15 @@
+services:
+  flask:
+    build:
+      context: .
+      dockerfile: Dockerfile-flask
+    restart: unless-stopped
+    environment:
+      - BEHIND_PROXY="true"
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    ports:
+      - "81:80"
+    restart: unless-stopped

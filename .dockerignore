@@ -3,3 +3,4 @@ music/
 videos/
 .gitignore
 Dockerfile-flask
+compose.yml
