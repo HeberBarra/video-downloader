@@ -11,5 +11,5 @@ services:
       context: .
       dockerfile: Dockerfile-nginx
     ports:
-      - "81:80"
+      - "81:443"
     restart: unless-stopped
