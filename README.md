@@ -14,7 +14,7 @@ A simple program written in python for downloading YouTube videos as MP4, and op
 
 <h2>Usage</h2>
 Requires poetry
-To be able to use this program you'll need to install it's dependencies can be installed using the following command:
+To be able to use this program you'll need to install its dependencies can be installed using the following command:
 
 ```poetry install --without dev --no-root```
 
