@@ -6,7 +6,7 @@ def mp3_converter(video_filepath: str) -> str:
     ffmpeg_command = [
         'ffmpeg',
         '-i',
-        f'{base_filename}.mp4',
+        f'{video_filepath}',
         '-b:a',
         '320K',
         f'{base_filename}.mp3',

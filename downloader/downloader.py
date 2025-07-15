@@ -8,7 +8,7 @@ from downloader.no_url_provided import NoURLProvided
 
 def sort_downloaded_files(files: list[str]):
     for file in files:
-        if file.endswith('.mp4'):
+        if file.endswith('.mp4') or file.endswith('.webm'):
             os.rename(file, f'videos/{file}')
             continue
 
@@ -18,7 +18,7 @@ def sort_downloaded_files(files: list[str]):
 
 
 class Downloader(YoutubeDL):
-    _download_options = {'format': 'mp4/best'}
+    _download_options = {'format': 'bv+ba/b'}
     _result_directories = {'videos', 'music'}
 
     filename_collector: FilenameCollector
