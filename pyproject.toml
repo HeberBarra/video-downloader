@@ -13,7 +13,7 @@ waitress = "^3.0.2"
 
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.12.7"
+ruff = "^0.12.11"
 
 [tool.ruff.format]
 quote-style = "single"
