@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-yt-dlp = "^2025.8.27"
+yt-dlp = "^2025.9.26"
 flask = "^3.1.2"
 waitress = "^3.0.2"
 
