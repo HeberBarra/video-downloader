@@ -1,8 +1,8 @@
 import sys
 
-from converter import converter
-from downloader import downloader
-from url_validator.url_validator import validate_url
+from src.converter import converter
+from src.downloader import downloader
+from src.url_validator.url_validator import validate_url
 
 
 def get_url() -> str | None:

@@ -9,10 +9,9 @@ from flask import send_from_directory
 from yt_dlp.utils import ExtractorError
 from waitress import serve
 
-from converter import converter
-from downloader import downloader
-from url_validator import url_validator
-
+from src.converter import converter
+from src.downloader import downloader
+from src.url_validator import url_validator
 
 app = Flask(__name__)
 

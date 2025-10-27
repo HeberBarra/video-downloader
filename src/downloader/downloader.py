@@ -2,13 +2,13 @@ import os
 
 from yt_dlp import YoutubeDL
 
-from downloader.filename_collector import FilenameCollector
-from downloader.no_url_provided import NoURLProvided
+from src.downloader.filename_collector import FilenameCollector
+from src.downloader.no_url_provided import NoURLProvided
 
 
 def sort_downloaded_files(files: list[str]):
     for file in files:
-        if file.endswith('.mp4') or file.endswith('.webm'):
+        if file.endswith('.mp4') or file.endswith('.webm') or file.endswith('.mkv'):
             os.rename(file, f'videos/{file}')
             continue
 

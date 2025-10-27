@@ -1,6 +1,8 @@
 version: 2
 updates:
   - package-ecosystem: pip
+    commit-message:
+      prefix: "[ DEPENDENCY ] "
     directory: /
     schedule:
       interval: monthly
