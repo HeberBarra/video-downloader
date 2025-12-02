@@ -8,7 +8,7 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
-yt-dlp = "^2025.10.22"
+yt-dlp = "^2025.11.12"
 flask = "^3.1.2"
 waitress = "^3.0.2"
 
