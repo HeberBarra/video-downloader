@@ -14,7 +14,7 @@ waitress = "^3.0.2"
 
 
 [tool.poetry.group.dev.dependencies]
-ruff = "^0.14.14"
+ruff = "^0.15.4"
 
 [tool.ruff.format]
 quote-style = "single"
